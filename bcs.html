@@ -9,7 +9,7 @@
     <script src="jquery-cookie/jquery.cookie.js"></script>
     <script type="text/javascript" charset="utf-8">
       function saveForms() {
-        $.cookie('savedate', new Date());
+        $.cookie('savedate', new Date(), {expires: 5*365});
         $("input").each(function() {
           var type = $(this).attr('type');
           var name = $(this).attr('name');
@@ -22,7 +22,7 @@
               break;
           }
           // Cookie valid for 5 years.
-          $.cookie(name, value, {expires: 5*356});
+          $.cookie(name, value, {expires: 5*365});
         });
       }
       function loadForms() {
