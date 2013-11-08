@@ -19,7 +19,7 @@
 			break;
 		
 		default:
-			$module->loadModule("", "Computer Science Checkliest");
+			$module->loadModule("", "Computer Science Checklist");
 			require('_views/view_checklist_index.php');
 
 			break;
