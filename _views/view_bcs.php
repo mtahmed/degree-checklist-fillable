@@ -1,63 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="bcs,checklist,cs,uwaterloo,fillable" />
-    <title>2013-2014 Bachelor of Computer Science Fillable Checklist</title>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="jquery-cookie/jquery.cookie.js"></script>
-    <script type="text/javascript" charset="utf-8">
-      function saveForms() {
-        $.cookie('savedate', new Date(), {expires: 5*365});
-        $("input").each(function() {
-          var type = $(this).attr('type');
-          var name = $(this).attr('name');
-          switch(type) {
-            case "text":
-              var value = $(this).val();
-              break;
-            case "checkbox":
-              var value = $(this).prop("checked") ? "t" : "f";
-              break;
-          }
-          // Cookie valid for 5 years.
-          $.cookie(name, value, {expires: 5*365});
-        });
-      }
-      function loadForms() {
-        if ($.cookie('savedate') == undefined) {
-          return;
-        }
-        $("input").each(function() {
-          var type = $(this).attr('type');
-          var name = $(this).attr('name');
-          var value = $.cookie(name);
-          switch(type) {
-            case "text":
-              $(this).val(value);
-              break;
-            case "checkbox":
-              $(this).prop("checked", value == "t" ? true : false)
-              break;
-          }
-        });
-      }
-      $(document).ready(function() {
-        loadForms();
-        $("#save").click(saveForms);
-      });
-    </script>
-</head>
-
-<body>
-
-  <h1>2013-2014 Bachelor of Computer Science Fillable Checklist</h1>
-  <ol>
-    <li>Under <strong>Required Courses</strong>, fill in forty unique courses (20 units) that you have passed but not excluded.</li>
-    <li>Verify that those courses also satisfy the <strong>Additional Constraints</strong>.</li>
-    <li>Press the "SAVE" button to store the form to cookies on your computer so it can be loaded again.</li>
-  </ol>
+<div id="bcs_checklist">
+	<h1>2013-2014 Bachelor of Computer Science Fillable Checklist</h1>
+	  <ol>
+	    <li>Under <strong>Required Courses</strong>, fill in forty unique courses (20 units) that you have passed but not excluded.</li>
+	    <li>Verify that those courses also satisfy the <strong>Additional Constraints</strong>.</li>
+	    <li>Press the "SAVE" button to store the form to cookies on your computer so it can be loaded again.</li>
+	  </ol>
 
   <div class="require">
     <h2>Required Courses</h2>
@@ -175,12 +122,4 @@
       SAVE
     </div>
   </a>
-
-  <div id="footer">
-  <p>git source <a href='https://github.com/mtahmed/degree-checklist-fillable'>https://github.com/mtahmed/degree-checklist-fillable</a>
-  <p>Adapted from <code>http://www.cs.uwaterloo.ca/current/programs/require/2013-2014/bcs.html</code></p>
-  <p><em>Disclaimer</em>: This checklist is a handy tool, but it is not a substitute for the official degree regulations. If there is a question of interpretation or a discrepancy, the University Calendar always takes precedence.  </p>
-  </div>
-
-</body>
-</html>
+</div>
